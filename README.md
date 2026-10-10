@@ -22,7 +22,12 @@ evaluated separately on a hand-written question set.
 
 ## 🎥 Demo
 
-<!-- TODO: drag the demo video (mp4) into the GitHub web editor here; GitHub turns it into a link -->
+
+
+
+https://github.com/user-attachments/assets/5d0c4074-b146-4632-81e5-cc1d4ffe4821
+
+<img width="620" height="773" alt="Example" src="https://github.com/user-attachments/assets/e6bb64b3-71be-4492-8f1b-e4af3d51fe9f" />
 
 <!-- TODO: screenshot of an answer with its sources and the "Retrieved passages" panel -->
 
