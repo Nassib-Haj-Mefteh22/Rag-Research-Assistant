@@ -1,0 +1,23 @@
+# secrets (file or folder)
+.env
+.env.*
+!.env.example
+
+# data, embeddings, indexes, LLM response cache
+data/
+*.npy
+*.faiss
+*.index
+llm_cache/
+
+# python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+desktop.ini
+
+# demo video: uploaded through the GitHub web editor, never committed (too large)
+*.mp4

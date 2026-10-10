@@ -1,0 +1,563 @@
+[
+  {
+    "id": "2610.01936",
+    "title": "Mapping the RAG Landscape: A Four Axis Taxonomy of Efficiency, Defense, Interactivity, and Reasoning",
+    "authors": [
+      "Meghana Sunil",
+      "Shravya V",
+      "Shravan Venkatraman",
+      "Joe Dhanith PR"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2610.01936"
+  },
+  {
+    "id": "2610.01324",
+    "title": "Evaluating Biomedical Reranking for LLM-Based Question Answering over Longitudinal Clinical Notes",
+    "authors": [
+      "Maryam Shahbaz Ali",
+      "Laura B. Strachan",
+      "Caitlin Sherman",
+      "Mark Kovler",
+      "Eleanor Mackey",
+      "Syed Muhammad Anwar"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2610.01324"
+  },
+  {
+    "id": "2609.38473",
+    "title": "Re-ranking and Late Interaction Drive Retrieval Quality: A Controlled Comparison of RAG Strategies for Scientific Question Answering",
+    "authors": [
+      "Bhagyesh Rathi",
+      "Eshan Chawla",
+      "William B. Andreopoulos"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.38473"
+  },
+  {
+    "id": "2609.31660",
+    "title": "Parser, Chunking, and Embedding Interactions in Retrieval-Augmented Generation over Indian Government Regulatory Documents",
+    "authors": [
+      "Shubham Kumar Singh"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.31660"
+  },
+  {
+    "id": "2608.26192",
+    "title": "Comparing Chunking and Embedding Strategies for Turkish RAG Systems",
+    "authors": [
+      "Mustafa Sertaç Türkel",
+      "Fatma Nur Korkmaz",
+      "Ahmet Tuğrul Bayrak"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.26192"
+  },
+  {
+    "id": "2609.16519",
+    "title": "AquiLLM: Evaluating Faithfulness in Open-Weight RAG-LLM Systems for Scientific Research",
+    "authors": [
+      "Bernie Boscoe",
+      "Srinath Saikrishnan",
+      "Vikram Seenivasan",
+      "Jack Stark",
+      "Andrew Lizarraga",
+      "Morgan Himes",
+      "Jonathan Soriano",
+      "PJ Allen",
+      "Tuan Do"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.16519"
+  },
+  {
+    "id": "2609.14579",
+    "title": "Beyond Benchmark Scores: How Synthetic and Authentic Query Distributions Diverge in RAG Evaluation",
+    "authors": [
+      "Filip J. Kucia",
+      "Barbara M. Gawlik"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.14579"
+  },
+  {
+    "id": "2609.37469",
+    "title": "Relevance Is Not Sufficient Evidence: Detecting Evidence Gaps Before Generation in RAG",
+    "authors": [
+      "Suting Chen",
+      "Peichun Hua",
+      "Yunming Xiao"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.37469"
+  },
+  {
+    "id": "2608.26385",
+    "title": "Why RAGs Hallucinate: Penalty-Aware Evaluation of Retrieval-Augmented Generation Systems with Knowledge-Gap Canaries",
+    "authors": [
+      "Alden Do Rosario",
+      "Hussein Younes",
+      "Felipe Pires"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.26385"
+  },
+  {
+    "id": "2608.26379",
+    "title": "Assessing the Downstream Utility of Evidence-Aware Retrieval in RAG",
+    "authors": [
+      "Utshab Kumar Ghosh",
+      "Debayan Mukhopadhyay",
+      "Shubham Chatterjee"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.26379"
+  },
+  {
+    "id": "2608.24753",
+    "title": "The RAT: A Unified Bayesian Model for RAG Evaluation",
+    "authors": [
+      "Pius von Däniken",
+      "Felix Matthias Saaro",
+      "Mark Cieliebak",
+      "Jan Deriu"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.24753"
+  },
+  {
+    "id": "2608.23176",
+    "title": "Evaluating Modern RAG: Textual, Multimodal, Dense, and Late Interaction Pipelines",
+    "authors": [
+      "Emre Kuru",
+      "Mehmet Onur Keskin"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.23176"
+  },
+  {
+    "id": "2609.36700",
+    "title": "Lost in Conversation or Lost in Translation? Diagnosing Multi-Turn Degradation in RAG",
+    "authors": [
+      "Pranav Handa",
+      "Ariful Azad"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.36700"
+  },
+  {
+    "id": "2609.13489",
+    "title": "Pre-retrieval Query Clustering for Adaptive Top-k Document Retrieval in RAG Systems",
+    "authors": [
+      "Ye Xia",
+      "Emre Yamangil",
+      "Haixun Wang"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.13489"
+  },
+  {
+    "id": "2609.11646",
+    "title": "Your Retriever Already Knows: Distribution-Shape QPP for RAG Retrieval Sufficiency",
+    "authors": [
+      "Matyáš Veselý",
+      "Michal Průšek",
+      "Jiří Franc"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.11646"
+  },
+  {
+    "id": "2609.31342",
+    "title": "Stale-Document Poisoning: When Outdated Retrieval Overrides Correct Model Answers",
+    "authors": [
+      "Md Shamim Ahmed",
+      "Lukas Galke Poech",
+      "Richard Röttger"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.31342"
+  },
+  {
+    "id": "2609.09243",
+    "title": "In RAG We Trust? Measuring Robustness of Retrieval-Augmented Generation Under Post-Retrieval Context Tampering",
+    "authors": [
+      "Iliano Fasolino"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.09243"
+  },
+  {
+    "id": "2609.17709",
+    "title": "One Size Does Not Fit All! Dynamic Retriever and Generator Selection for RAG",
+    "authors": [
+      "Neeraj Anand",
+      "Payel Santra",
+      "Partha Basuchowdhuri",
+      "Debasis Ganguly",
+      "Sumit Bhatia"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.17709"
+  },
+  {
+    "id": "2609.24122",
+    "title": "Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines",
+    "authors": [
+      "Aviral Joshi",
+      "Hanoz Bhathena",
+      "Max Nelson",
+      "Saket Sharma"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.24122"
+  },
+  {
+    "id": "2608.22118",
+    "title": "RAG Collapse: LLM Responses Collapse When Retrieved Documents Are Self-Authored",
+    "authors": [
+      "Gregory Druck",
+      "Ethan Smith"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.22118"
+  },
+  {
+    "id": "2609.35831",
+    "title": "Beyond the Context Window: An Adaptive Entropy-Based Routing Framework for Hybrid Retrieval and Long-Context Language Models",
+    "authors": [
+      "Isaac Olufadewa",
+      "Miracle Adesina",
+      "Ezekiel Oladejo",
+      "Owen Adeniyi",
+      "Fadare Fadekemi",
+      "Olamide Oso",
+      "Uthman Babatunde",
+      "Matthew Olawoyin"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.35831"
+  },
+  {
+    "id": "2610.01767",
+    "title": "A Matryoshka Hierarchical RAG for Efficient Multi-Hop Question Answering",
+    "authors": [
+      "Gianluca Bonifazi",
+      "Christopher Buratti",
+      "Michele Marchetti",
+      "Federica Parlapiano",
+      "Giulia Quaglieri",
+      "Davide Traini",
+      "Domenico Ursino",
+      "Luca Virgili"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2610.01767"
+  },
+  {
+    "id": "2609.11758",
+    "title": "RAG-Safety-Bench: Reliable Evaluation of Retrieval-Augmented LLM Safety",
+    "authors": [
+      "Adithiyan Rajan Indira Saravanan",
+      "Kathleen C. Fraser"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.11758"
+  },
+  {
+    "id": "2608.21558",
+    "title": "Automating Multi-Hop RAG Evaluation via TRIAD: From Context Extraction to Validated Dataset Generation",
+    "authors": [
+      "Lorenz Brehme",
+      "Adam Jatowt"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.21558"
+  },
+  {
+    "id": "2609.14739",
+    "title": "Building Legal Reward Models for Grounding and Abstention",
+    "authors": [
+      "Rilton Franzone",
+      "Valentin Noël",
+      "Puyu Wang",
+      "Philip Torr",
+      "Fabio J. Fehr"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.14739"
+  },
+  {
+    "id": "2609.37577",
+    "title": "Pair Difficulty Matters: Rethinking Pairwise LLM-as-a-Judge Evaluation and Consistency",
+    "authors": [
+      "Bruno Brocai",
+      "Maria Becker"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.37577"
+  },
+  {
+    "id": "2609.37145",
+    "title": "From Judgment Quality to Downstream Utility: Rethinking LLM-as-a-Judge for Open-Ended Tasks",
+    "authors": [
+      "Zheng Zhang",
+      "Lufei Li",
+      "Xinyue Tan",
+      "Yuanhao Zeng",
+      "Ziwei Shan",
+      "Yexin Li",
+      "Kan Ren"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.37145"
+  },
+  {
+    "id": "2609.34198",
+    "title": "Frozen Judges, Moving Agents: Version-Dependent LLM-Judge Error and the Limits of Judge-Assisted Agent Evaluation",
+    "authors": [
+      "Jiapeng Li"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.34198"
+  },
+  {
+    "id": "2609.33955",
+    "title": "Designing Reliable LLM-as-a-Judge Measurement Systems for Multi-Turn Business Agents",
+    "authors": [
+      "Kaiwen Luo",
+      "Ming Gao"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.33955"
+  },
+  {
+    "id": "2609.31857",
+    "title": "LLM Judge Validation Under Sparse Overlap: From Inference to Design",
+    "authors": [
+      "Junxuan Li",
+      "Arko Mukherjee",
+      "Soumyabrata Pal"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.31857"
+  },
+  {
+    "id": "2609.29769",
+    "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+    "authors": [
+      "Delip Rao",
+      "Chris Callison-Burch"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.29769"
+  },
+  {
+    "id": "2609.22512",
+    "title": "Agreement Overstates Evidence: Error Dependence in LLM Judge Consensus",
+    "authors": [
+      "Elias Hossain",
+      "Niloofar Yousefi",
+      "Ser-Nam Lim"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.22512"
+  },
+  {
+    "id": "2609.21277",
+    "title": "How Many Humans Are 32 LLM Judges Worth?",
+    "authors": [
+      "Chao Li",
+      "Yingying Yu",
+      "Yunfeng Li"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.21277"
+  },
+  {
+    "id": "2609.13824",
+    "title": "When Consistency Does Not Mean Reliability: Evaluating Local LLM Judges Against Human Ratings",
+    "authors": [
+      "Aakash Kumar Tiwari"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.13824"
+  },
+  {
+    "id": "2609.12439",
+    "title": "Debiasing as a Measurement Intervention: Calibrated Ties and Resolution Loss in LLM-as-a-Judge Evaluation",
+    "authors": [
+      "Liang Zhao",
+      "Yong Wang",
+      "Jiangzhe Chen"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.12439"
+  },
+  {
+    "id": "2609.11067",
+    "title": "When Noise Fabricates Bias: The Fragility of LLM-as-a-Judge Bias Measurement under Noisy Text",
+    "authors": [
+      "DongHyun Ryu",
+      "Jaehyeok Lee",
+      "YeongJun Hwang",
+      "JinYeong Bak"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.11067"
+  },
+  {
+    "id": "2609.10996",
+    "title": "Rethinking Verbalized Confidence for LLM-as-a-Judge: A Compatibility Shift on Post-2025 Proprietary Models",
+    "authors": [
+      "Yu-Chung Hsiao"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.10996"
+  },
+  {
+    "id": "2609.12002",
+    "title": "Can We Trust LLM Judges: A Study of Capability-Dependent Biases and Multi-Judge Ensemble for Bias Calibration",
+    "authors": [
+      "Gemma Zhang",
+      "Prachi Badarayani",
+      "Asmi Kumar",
+      "Sadid Hasan",
+      "Sulaiman Vesal"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.12002"
+  },
+  {
+    "id": "2609.06444",
+    "title": "Decomposing LLM-Judge Uncertainty to Target Expert Labels",
+    "authors": [
+      "Ryan Lail"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.06444"
+  },
+  {
+    "id": "2609.02942",
+    "title": "Judging LLM-as-a-Judge: Concerning Rubric Artifacts in LLM-based Automated Text Generation Evaluation",
+    "authors": [
+      "Anshul Bagaria",
+      "Sowmya S Sundaram",
+      "Gokul S Krishnan",
+      "Balaraman Ravindran"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.02942"
+  },
+  {
+    "id": "2609.01604",
+    "title": "Beyond Scores: Understanding LLM-as-a-Judge Mechanisms in Summarization Evaluation",
+    "authors": [
+      "Himil Vasava",
+      "Ming Jiang"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.01604"
+  },
+  {
+    "id": "2608.31016",
+    "title": "LLM Judges Verify Presence, Not Absence: Omission Blindness in AI Clinical Notes and What Recovers It",
+    "authors": [
+      "Sebastian Fox",
+      "Luke Markham",
+      "Ryan Lail",
+      "Michael Karotsieris"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2608.31016"
+  },
+  {
+    "id": "2609.35815",
+    "title": "How to Run Statistics over LLM Judges and Trust the Results: Calibrated Inference for Small-Sample AI Evaluation with evalstats",
+    "authors": [
+      "Ian Arawjo"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.35815"
+  },
+  {
+    "id": "2609.26489",
+    "title": "Calibration as a First-Class Criterion in LLM Evaluation",
+    "authors": [
+      "Mario Sanz-Guerrero",
+      "Katharina von der Wense"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.26489"
+  },
+  {
+    "id": "2609.25645",
+    "title": "Efficient Cost-Aware LLM Evaluation via Bayesian Bandit Gittins Indices",
+    "authors": [
+      "Qian Xie",
+      "Yueli He",
+      "Nairen Cao"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.25645"
+  },
+  {
+    "id": "2609.36931",
+    "title": "Dating the Model: Hidden Dates in System Prompts Affect LLM Evaluation",
+    "authors": [
+      "Mario Sanz-Guerrero",
+      "Minh Duc Bui",
+      "Manuel Mager",
+      "Katharina von der Wense"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.36931"
+  },
+  {
+    "id": "2609.34320",
+    "title": "Certified Selective Automation of LLM Agent Evaluation",
+    "authors": [
+      "Chengguang Gan",
+      "Yunhao Liang",
+      "Qinghao Zhang",
+      "Shiwen Ni"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.34320"
+  },
+  {
+    "id": "2609.30074",
+    "title": "How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure",
+    "authors": [
+      "Dipankar Sarkar"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.30074"
+  },
+  {
+    "id": "2610.01428",
+    "title": "Generalization Is Stability, Not Accuracy: Multi-Axis Evaluation of LLMs",
+    "authors": [
+      "Nagham Omar",
+      "Mahmoud Jabarin",
+      "Maya Rozenshtein",
+      "Rom Himelstein",
+      "Avi Mendelson",
+      "Amit LeVi"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2610.01428"
+  },
+  {
+    "id": "2609.00088",
+    "title": "Commit-first LLM judging inherits the judge's own errors",
+    "authors": [
+      "Idil Gozel"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2609.00088"
+  }
+]

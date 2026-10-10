@@ -1,0 +1,16 @@
+id,category,category_name,evidence
+f04,2,"Retrieved but ranked too low (fact in top 20, not in top 4)","gold p6 absent at k=4, fact found at k=8; model refused"
+f09,4,Retrieved but LLM ignored or omitted it,'124M' is in the retrieved text; answer omitted the size
+f18,2,"Retrieved but ranked too low (fact in top 20, not in top 4)","Youden/TPR definition absent at k=4, found at k=8; model refused"
+f19,2,"Retrieved but ranked too low (fact in top 20, not in top 4)",'91 name pairs' only found at k=20; answer partial
+f20,2,"Retrieved but ranked too low (fact in top 20, not in top 4)","Retrieve.KV / En.Sum absent at k=4, found at k=8; model refused"
+f21,2,"Retrieved but ranked too low (fact in top 20, not in top 4)",right page hit but chunk lacks the 3 types; found at k=8; model refused
+m01,5,Unsupported claim / judge flags faithfulness,faithfulness 1: D1/D2 -> leave/conduct mapping not stated; details omitted
+m02,2,"Retrieved but ranked too low (fact in top 20, not in top 4)","second paper (MedCPT) absent at k=4, found at k=8; answer half"
+m04,5,Unsupported claim / judge flags faithfulness,"faithfulness 1 but correctness 2: computed differences, judge too strict"
+m05,2,"Retrieved but ranked too low (fact in top 20, not in top 4)","stopping rule ('registry') absent at k=4, found at k=8; answer half"
+m06,1,Not retrieved (fact absent from top 20),"RINSE paper never retrieved, even at k=20; answer half + refusal sentence"
+m07,1,Not retrieved (fact absent from top 20),83.7 / 77.6 not in top 20: page-level hit but wrong chunk
+m08,1,Not retrieved (fact absent from top 20),'36%' not in top 20: page-level hit but wrong chunk
+m09,7,Wrong refusal / refusal sentence appended to a real answer,"answer is right; refusal sentence appended, so it is scored as a refusal"
+m10,4,Retrieved but LLM ignored or omitted it,79.6% is in the retrieved text; model said no aggregate share is given
