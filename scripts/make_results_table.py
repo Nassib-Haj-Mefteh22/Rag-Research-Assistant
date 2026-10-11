@@ -1,12 +1,3 @@
-"""Step 12.4: write the README results table from results/summary.csv (no hand-typed numbers).
-
-WHY a script: every README number must come from a script in this repo. The table sits
-between two marker comments in README.md; rerunning this script replaces only that block, so new
-experiments (rows present in summary.csv) appear after one command.
-Usage: python scripts/make_results_table.py            (updates README.md)
-       python scripts/make_results_table.py --print    (print only)
-"""
-
 import argparse
 import csv
 from pathlib import Path
@@ -16,7 +7,6 @@ SUMMARY = ROOT / "results" / "summary.csv"
 README = ROOT / "README.md"
 START, END = "<!-- RESULTS:START -->", "<!-- RESULTS:END -->"
 
-# summary.csv row name -> label. Order is the order in the README. Missing rows are skipped.
 ROWS = [
     ("e0_no_retrieval", "E0 no retrieval"),
     ("cs500_ov50_k4_dense", "E1 dense, chunk 500/50, k=4"),
@@ -38,11 +28,10 @@ COLUMNS = [
     ("over_refusal", "Over-refusal"),
     ("correct_abstention", "Correct abstention"),
 ]
-NOT_APPLICABLE_E0 = {"correct_abstention", "over_refusal"}  # E0 refuses in its own words
+NOT_APPLICABLE_E0 = {"correct_abstention", "over_refusal"}
 
 
 def cell(row: dict, key: str) -> str:
-    """One table cell: empty means 'does not apply' (e.g. no retrieval metrics for E0)."""
     if row["name"] == "e0_no_retrieval" and key in NOT_APPLICABLE_E0:
         return "n/a"
     value = row.get(key, "")

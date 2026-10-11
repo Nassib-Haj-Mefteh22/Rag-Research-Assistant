@@ -80,7 +80,6 @@ def test_find_headers_footers_detects_repeated_edge_line():
 
 
 def test_find_headers_footers_ignores_repeated_line_in_the_middle():
-    # "Qwen" repeats on every page but sits in the middle, like a table cell.
     pages = [f"top {i}\na{i}\nQwen\nb{i}\nc{i}\nd{i}\nbottom {i}" for i in range(10)]
     assert find_headers_footers(pages) == set()
 
@@ -118,7 +117,6 @@ def test_normalize_whitespace():
 
 
 def test_clean_page_order_hyphen_before_join():
-    # If joining ran first we would get 'knowl- edge'.
     text = "We build a very large knowl-\nedge graph from the documents we have."
     assert clean_page(text) == "We build a very large knowledge graph from the documents we have."
 
@@ -159,13 +157,11 @@ def test_drop_references_keeps_length_so_page_numbers_stay_aligned():
 
 
 def test_drop_references_heading_is_whole_line_only():
-    # "references" inside a sentence must not trigger the cut.
     pages = [f"See the references in Section 2 for details.\n{BODY}", BODY]
     assert drop_references(pages) == pages
 
 
 def test_citation_density_counts_wrapped_citation_split_over_lines():
-    # Real shape: the year and 'In Proceedings' sit on different lines of ONE citation.
     wrapped = (
         "Jon Saad-Falcon, Omar Khattab, and\n"
         "Matei Zaharia. 2024. ARES: An automated\n"
@@ -174,4 +170,3 @@ def test_citation_density_counts_wrapped_citation_split_over_lines():
         "Association for Computational Linguistics"
     )
     assert citation_density(wrapped) >= 0.30
-

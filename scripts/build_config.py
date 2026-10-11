@@ -1,10 +1,3 @@
-"""Step 11: build chunks -> embeddings -> FAISS index for one chunking config.
-
-WHY a script: chunk.py / embed.py / index.py only build the default 1000/100 when run as
-modules. Experiments E1-E3 need other sizes; this calls the same functions with arguments.
-Usage: python scripts/build_config.py --chunk-size 500 --overlap 50
-"""
-
 import argparse
 import time
 

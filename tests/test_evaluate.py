@@ -34,7 +34,6 @@ def test_empty_gold_never_hits():
     assert not is_hit(chunk("2609.16519", 5), [])
 
 
-# ---- 10.2 metrics ----
 import pytest  # noqa: E402
 
 from rag.evaluate import gold_passages, hit_at_k, recall_at_k, reciprocal_rank  # noqa: E402
@@ -89,7 +88,6 @@ def test_empty_gold_raises():
         hit_at_k([chunk("D", 3)], [], 4)
 
 
-# ---- 10.3 correctness judge (pure parts; the LLM call itself is checked by hand) ----
 from rag.evaluate import JUDGE_RUBRIC, build_judge_messages, parse_score  # noqa: E402
 
 
@@ -115,7 +113,6 @@ def test_parse_score_rejects_garbage(bad):
         parse_score(bad)
 
 
-# ---- 10.4 faithfulness judge (pure parts) ----
 from rag.evaluate import (  # noqa: E402
     FAITHFULNESS_RUBRIC,
     build_faithfulness_messages,
@@ -144,7 +141,6 @@ def test_faithfulness_skips_refusal_without_calling_llm(monkeypatch):
     assert judge_faithfulness(REFUSAL, CHUNKS) is None
 
 
-# ---- 10.5 abstention ----
 from rag.evaluate import abstention_report, is_abstention  # noqa: E402
 
 
@@ -163,12 +159,12 @@ def test_abstention_report_counts():
     rows = [
         row("factual", False), row("factual", True), row("multi", False), row("multi", False),
         row("unanswerable", True), row("unanswerable", True), row("unanswerable", False),
-    ]  # fmt: skip
+    ]
     rep = abstention_report(rows)
     assert rep["n_answerable"] == 4 and rep["n_unanswerable"] == 3
-    assert rep["over_refusal"] == 0.25  # 1 of 4 answerable refused
+    assert rep["over_refusal"] == 0.25
     assert rep["correct_abstention"] == pytest.approx(2 / 3)
-    assert rep["accuracy"] == pytest.approx(5 / 7)  # 3 answered + 2 refused correctly
+    assert rep["accuracy"] == pytest.approx(5 / 7)
 
 
 def test_always_refusing_is_exposed_by_over_refusal():
@@ -183,7 +179,6 @@ def test_empty_group_gives_none():
     assert rep["correct_abstention"] is None
 
 
-# ---- 10.6 per-question evaluation, summary, results files ----
 import csv  # noqa: E402
 import json  # noqa: E402
 
@@ -193,12 +188,11 @@ from rag.evaluate import evaluate_item, summarize, write_results  # noqa: E402
 GOLD_ITEM = {
     "id": "f99", "type": "factual", "question": "Q?", "answer": "A.",
     "gold": [{"doc_id": "D", "pages": [3]}],
-}  # fmt: skip
+}
 UNANS_ITEM = {"id": "u99", "type": "unanswerable", "question": "Q?", "answer": "-", "gold": []}
 
 
 def fake_pipeline(monkeypatch, answer_text: str, chunks: list[dict]) -> None:
-    """Replace retrieval, generation and both judges so evaluate_item runs offline."""
     monkeypatch.setattr(evaluate, "retrieve", lambda q, k, size, overlap, mode: chunks)
     monkeypatch.setattr(
         evaluate, "answer_from_chunks", lambda q, c: {"answer": answer_text, "chunks": c}
@@ -219,7 +213,7 @@ def test_evaluate_item_answered_gets_all_scores(monkeypatch):
 
 def test_evaluate_item_refused_answerable_is_zero_without_judges(monkeypatch):
     fake_pipeline(monkeypatch, REFUSAL, [chunk("X", 1)])
-    monkeypatch.setattr(evaluate, "judge_correctness", lambda *a: 1 / 0)  # must not be called
+    monkeypatch.setattr(evaluate, "judge_correctness", lambda *a: 1 / 0)
     row = evaluate_item(GOLD_ITEM, k=4, chunk_size=1000, chunk_overlap=100, mode="dense")
     assert row["abstained"] is True
     assert row["correctness"] == 0 and row["faithfulness"] is None
@@ -230,7 +224,7 @@ def test_evaluate_item_unanswerable_has_no_retrieval_or_correctness(monkeypatch)
     fake_pipeline(monkeypatch, "Made up [1].", [chunk("X", 1)])
     row = evaluate_item(UNANS_ITEM, k=4, chunk_size=1000, chunk_overlap=100, mode="dense")
     assert row["hit"] is None and row["correctness"] is None
-    assert row["faithfulness"] == 1  # answered anyway: hallucination check still runs
+    assert row["faithfulness"] == 1
 
 
 def test_malformed_judge_reply_is_recorded_not_raised(monkeypatch):
@@ -249,17 +243,17 @@ def _row(kind, hit, rr, correctness, faith, abstained):
     return {
         "type": kind, "hit": hit, "recall": hit, "rr": rr, "correctness": correctness,
         "faithfulness": faith, "abstained": abstained, "judge_errors": [],
-    }  # fmt: skip
+    }
 
 
 def test_summarize_uses_only_applicable_rows():
     rows = [
         _row("factual", 1.0, 1.0, 2, 2, False),
-        _row("factual", 0.0, 0.0, 0, None, True),  # refused: no faithfulness
+        _row("factual", 0.0, 0.0, 0, None, True),
         _row("unanswerable", None, None, None, None, True),
     ]
     s = summarize(rows)
-    assert s["hit"] == 0.5 and s["mrr"] == 0.5  # unanswerable row ignored
+    assert s["hit"] == 0.5 and s["mrr"] == 0.5
     assert s["correct_mean"] == 1.0 and s["correct_full"] == 0.5
     assert s["faith_mean"] == 2.0 and s["faith_n"] == 1
     assert s["correct_abstention"] == 1.0 and s["over_refusal"] == 0.5
@@ -270,7 +264,7 @@ def test_write_results_upserts_summary_row(tmp_path):
     config = {"chunk_size": 1000, "overlap": 100, "k": 4, "mode": "dense"}
     write_results("cfgA", config, rows, tmp_path)
     write_results("cfgB", config, rows, tmp_path)
-    write_results("cfgA", config, rows, tmp_path)  # rerun replaces, no duplicate
+    write_results("cfgA", config, rows, tmp_path)
     table = list(csv.DictReader(open(tmp_path / "summary.csv", encoding="utf-8")))
     assert sorted(r["name"] for r in table) == ["cfgA", "cfgB"]
     assert table[0]["hit"] == "1.0"
@@ -279,7 +273,6 @@ def test_write_results_upserts_summary_row(tmp_path):
 
 
 def test_no_retrieval_mode_skips_retrieval_and_context_metrics(monkeypatch):
-    """E0: no retrieve call, retrieval metrics None, no faithfulness judge call."""
     from rag import evaluate
 
     def boom(*args, **kwargs):

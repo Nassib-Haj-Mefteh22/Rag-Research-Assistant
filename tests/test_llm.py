@@ -1,5 +1,3 @@
-"""Tests for llm.py: cache key is stable and sensitive; the cache prevents a second API call."""
-
 from rag import llm
 from rag.config import Settings
 
@@ -36,4 +34,4 @@ def test_second_call_is_served_from_cache(tmp_path, monkeypatch):
     s = make_settings(tmp_path)
     assert llm.chat("m", MSG, settings=s) == "answer"
     assert llm.chat("m", MSG, settings=s) == "answer"
-    assert len(calls) == 1  # the second call never reached the API
+    assert len(calls) == 1

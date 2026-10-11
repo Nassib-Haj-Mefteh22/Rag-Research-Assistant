@@ -1,13 +1,7 @@
-"""Step 12.2: Streamlit demo. Run: .\.venv\Scripts\streamlit.exe run app.py
-
-WHY a thin page: all RAG logic lives in src/rag (answer, format_sources); this file only draws
-the question box, the answer, the sources and the retrieved passages. Same pipeline as the CLI.
-"""
-
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent / "src"))  # so `import rag` works without PYTHONPATH
+sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 import streamlit as st  # noqa: E402
 
@@ -20,7 +14,6 @@ MODES = ["hybrid+rerank", "hybrid", "dense+rerank", "dense"]
 
 @st.cache_data
 def titles() -> dict[str, str]:
-    """Read metadata.json once per session instead of on every click."""
     return load_titles()
 
 

@@ -1,5 +1,3 @@
-"""Step 2: download arXiv PDFs listed in corpus/corpus_ids.txt, write metadata.json."""
-
 import json
 import re
 import sys
@@ -14,25 +12,15 @@ from rag.config import ROOT
 IDS_FILE = ROOT / "corpus" / "corpus_ids.txt"
 METADATA_FILE = ROOT / "corpus" / "metadata.json"
 RAW_DIR = ROOT / "data" / "raw"
-PDF_URL = "https://arxiv.org/pdf/{arxiv_id}"  # versioned id, e.g. 2610.01936v1
+PDF_URL = "https://arxiv.org/pdf/{arxiv_id}"
 API_URL = "https://export.arxiv.org/api/query"
 ATOM = "{http://www.w3.org/2005/Atom}"
-# WHY: arXiv asks automated clients to identify themselves and to go slowly.
 USER_AGENT = "rag-assistant-portfolio/0.1 (student project; polite downloader)"
 DELAY_SECONDS = 3.0
-ARXIV_ID = re.compile(r"^\d{4}\.\d{4,5}v\d+$")  # version is required (reproducibility)
+ARXIV_ID = re.compile(r"^\d{4}\.\d{4,5}v\d+$")
 
 
 def parse_ids(text: str) -> list[str]:
-    """Return versioned arXiv IDs (e.g. 2610.01936v1) from the corpus file, in file order.
-
-    WHY a pure function: the file format (`id  # title`) is the one thing that can break
-    silently, so it is parsed in one place and unit-tested without touching the network.
-    WHY versions are required: an unversioned URL serves the latest revision, so a rebuild
-    after an author update silently changes the corpus (found in the 12.5 fresh-clone check:
-    2610.01936 went from 28 to 35 pages). Comments, blanks and exact duplicates are ignored;
-    the same paper listed with two different versions is an error.
-    """
     ids: list[str] = []
     for line in text.splitlines():
         token = line.split("#", 1)[0].strip()
@@ -49,16 +37,10 @@ def parse_ids(text: str) -> list[str]:
 
 
 def base_id(arxiv_id: str) -> str:
-    """2610.01936v1 -> 2610.01936. Files, chunks and eval gold labels use the unversioned id."""
     return re.sub(r"v\d+$", "", arxiv_id)
 
 
 def download_one(client: httpx.Client, arxiv_id: str, dest: Path) -> None:
-    """Fetch one PDF to `dest`. Writes to a .part file first so a crash never leaves a broken PDF.
-
-    WHY the %PDF check: arXiv can answer 200 with an HTML error page; saving that as .pdf
-    would only fail later, at parsing time, far from the cause.
-    """
     response = client.get(PDF_URL.format(arxiv_id=arxiv_id))
     response.raise_for_status()
     if not response.content.startswith(b"%PDF"):
@@ -69,15 +51,8 @@ def download_one(client: httpx.Client, arxiv_id: str, dest: Path) -> None:
 
 
 def parse_entries(xml_text: str) -> list[dict]:
-    """Turn an arXiv Atom response into metadata records.
-
-    WHY pure and separate from the HTTP call: the XML shape is the fragile part, so it is
-    unit-tested on a small sample. Titles are whitespace-normalised because the API wraps
-    long titles over several lines. Year = first-version `published` date.
-    """
     records: list[dict] = []
     for entry in ET.fromstring(xml_text).findall(f"{ATOM}entry"):
-        # <id> looks like http://arxiv.org/abs/2610.01936v1: keep the id, drop the version.
         arxiv_id = re.sub(r"v\d+$", "", entry.findtext(f"{ATOM}id", "").rsplit("/abs/", 1)[-1])
         records.append(
             {
@@ -95,7 +70,6 @@ def parse_entries(xml_text: str) -> list[dict]:
 
 
 def fetch_metadata(client: httpx.Client, ids: list[str]) -> list[dict]:
-    """One API call for all ids (50 fit in one request), returned in corpus-file order."""
     response = client.get(API_URL, params={"id_list": ",".join(ids), "max_results": len(ids)})
     response.raise_for_status()
     by_id = {r["id"]: r for r in parse_entries(response.text)}

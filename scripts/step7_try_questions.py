@@ -1,17 +1,8 @@
-"""Step 7.2: print the top-5 chunks for 10 questions so a human can judge retrieval by eye.
-
-WHY: before building generation on top, we need to know if the right chunk is even retrieved.
-Run: $env:PYTHONPATH="src"; .\\.venv\\Scripts\\python.exe scripts\\step7_try_questions.py
-"""
-
 import sys
 import time
 
 from rag.retrieve import retrieve
 
-# (question, kind). "obvious" = a topic the corpus surely covers, the answer chunk must be in the
-# top 3. "number" / "acronym" = exact tokens, where dense embeddings are expected to be weaker
-# (this motivates BM25 in 7.3).
 QUESTIONS = [
     ("What is faithfulness in RAG evaluation?", "obvious"),
     ("How does an LLM-as-a-judge score generated answers?", "obvious"),
@@ -27,7 +18,6 @@ QUESTIONS = [
 
 
 def main() -> None:
-    # PDF text has symbols (e.g. math stars) that the Windows cp1252 console cannot print.
     mode = sys.argv[1] if len(sys.argv) > 1 else "dense"
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     for number, (question, kind) in enumerate(QUESTIONS, 1):

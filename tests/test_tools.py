@@ -18,7 +18,7 @@ def test_results_are_simple_dicts_with_titles(monkeypatch):
     assert seen == {"query": "What is BM25?", "k": 2, "mode": "hybrid+rerank"}
     assert set(results[0]) == {"doc_id", "title", "page", "score", "text"}
     assert results[0]["title"] == "Paper One"
-    assert results[1]["title"] == "(title unknown)"  # missing metadata must not crash
+    assert results[1]["title"] == "(title unknown)"
 
 
 def test_empty_result_gives_empty_list(monkeypatch):

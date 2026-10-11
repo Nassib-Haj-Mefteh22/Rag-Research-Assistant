@@ -1,5 +1,3 @@
-# WHY: the file watcher scans every loaded module and trips over a lazy transformers
-# submodule that needs torchvision (not used here). A demo does not need auto-reload.
 [server]
 fileWatcherType = "none"
 headless = true

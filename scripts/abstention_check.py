@@ -1,9 +1,3 @@
-"""10.5: abstention on all 43 eval questions (k=4, dense): counts only, no LLM judge.
-
-Needs one generation call per question (cached). Prints the two rates and the ids of the
-answerable questions that were refused, which are the ones to inspect in step 11.
-"""
-
 import json
 
 from rag.evaluate import abstention_report, is_abstention

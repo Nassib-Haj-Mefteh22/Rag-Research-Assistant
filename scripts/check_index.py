@@ -1,5 +1,3 @@
-"""Step 6.2: check that FAISS and plain numpy return the same top-5 for 20 queries."""
-
 import numpy as np
 
 from rag.chunk import DEFAULT_OVERLAP, DEFAULT_SIZE, chunks_path, load_pages

@@ -29,8 +29,6 @@ def test_consecutive_chunks_overlap():
     chunks = [c for c in chunk_pages(PAGES, 200, 40) if c["doc_id"] == "d1" and c["page"] == 1]
     assert len(chunks) > 1
     for prev, nxt in zip(chunks, chunks[1:], strict=False):
-        # the start of the next chunk must already appear at the end of the previous one
-        # (lstrip: the ". " separator is attached to the START of the following piece)
         assert nxt["text"][:20].lstrip(". ") in prev["text"][-60:]
 
 

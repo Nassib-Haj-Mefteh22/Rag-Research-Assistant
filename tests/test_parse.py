@@ -5,17 +5,16 @@ HEADER = "Conference 2017"
 
 
 def _body(i: int) -> str:
-    # Body lines differ per page (the {i}); only HEADER repeats, as in a real paper.
     return f"{HEADER}\nWe describe experiment {i} in detail here and\nwe report result {i}.\n{i}"
 
 
 def test_process_doc_drops_references_keeps_appendix_and_original_page_numbers():
-    pages = [_body(i) for i in range(1, 7)]  # pages 1-6: body with header + page number
-    pages.append("References\n" + "\n".join([CITATION] * 5))  # page 7
-    pages.append("\n".join([CITATION] * 5))  # page 8
-    pages.append("A Prompts\nThe judge prompt we used for all runs is shown below.")  # page 9
+    pages = [_body(i) for i in range(1, 7)]
+    pages.append("References\n" + "\n".join([CITATION] * 5))
+    pages.append("\n".join([CITATION] * 5))
+    pages.append("A Prompts\nThe judge prompt we used for all runs is shown below.")
     out = dict(process_doc(pages))
-    assert sorted(out) == [1, 2, 3, 4, 5, 6, 9]  # 7 and 8 gone, numbers NOT renumbered
+    assert sorted(out) == [1, 2, 3, 4, 5, 6, 9]
     assert out[1] == "We describe experiment 1 in detail here and we report result 1."
     assert "Conference 2017" not in out[1]
     assert out[9].startswith("A Prompts")

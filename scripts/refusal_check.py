@@ -1,9 +1,3 @@
-"""8.3: do unanswerable questions get the fixed refusal sentence?
-
-Two kinds: off-topic (retrieval returns garbage) and on-topic but absent from the corpus
-(retrieval returns plausible chunks, so the pull to answer anyway is strong).
-"""
-
 from rag.generate import answer
 
 QUESTIONS = [

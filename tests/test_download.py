@@ -30,7 +30,6 @@ def test_parse_ids_rejects_garbage() -> None:
 
 
 def test_parse_ids_requires_a_version() -> None:
-    # unversioned ids download the latest revision, which can change the corpus silently
     with pytest.raises(ValueError):
         parse_ids("2610.01936\n")
 

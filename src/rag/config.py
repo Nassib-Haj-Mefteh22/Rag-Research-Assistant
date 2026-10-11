@@ -1,24 +1,14 @@
-"""Central settings: paths, model names, API key. Reads .env.
-
-WHY one module: every other file imports its settings from here, so a model name or
-folder is changed in exactly one place and experiments stay comparable.
-"""
-
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from dotenv import load_dotenv
 
-# src/rag/config.py -> parents[2] is the repository root
 ROOT = Path(__file__).resolve().parents[2]
 
 
 @dataclass(frozen=True)
 class Settings:
-    """Immutable settings. frozen=True so no module can change them by accident."""
-
-    # repr=False: printing a Settings object must never reveal the key.
     groq_api_key: str = field(repr=False)
     groq_base_url: str
     gen_model: str
@@ -32,7 +22,6 @@ class Settings:
 
 
 def load_settings() -> Settings:
-    """Load .env, then build Settings. Fails early with a clear message if the key is missing."""
     load_dotenv(ROOT / ".env")
     key = os.environ.get("GROQ_API_KEY", "").strip()
     if not key:
@@ -49,4 +38,4 @@ def load_settings() -> Settings:
 if __name__ == "__main__":
     s = load_settings()
     print(s)
-    print(f"GROQ_API_KEY: set ({len(s.groq_api_key)} chars)")  # length only, never the value
+    print(f"GROQ_API_KEY: set ({len(s.groq_api_key)} chars)")

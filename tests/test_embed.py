@@ -5,8 +5,6 @@ from rag.embed import QUERY_PREFIX, embed_chunks, embed_query, embed_texts
 
 
 class FakeModel:
-    """Stands in for SentenceTransformer so tests need no model download."""
-
     def __init__(self) -> None:
         self.seen: list[str] = []
 
@@ -40,7 +38,7 @@ def test_embed_chunks_caches_and_reloads(tmp_path):
     assert path.exists() and first.shape == (2, 3)
     model = FakeModel()
     second = embed_chunks(model, CHUNKS, path)
-    assert model.seen == []  # served from disk, the model was not called
+    assert model.seen == []
     assert np.array_equal(first, second)
 
 

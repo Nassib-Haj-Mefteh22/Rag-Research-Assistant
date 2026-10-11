@@ -1,10 +1,3 @@
-"""10.4: faithfulness judge on 10 answers, printed for a manual spot check.
-
-For each answer: the answer text, the passages it cites (so you can verify the claims by eye)
-and the judge's verdict. Refusals are skipped by the judge (None). Cached, reruns are free.
-All 8 unanswerable questions are refused at k=4, so none of them appear here.
-"""
-
 import json
 import re
 
@@ -13,12 +6,11 @@ from rag.generate import answer
 
 K = 4
 IDS = ["f02", "f04", "f06", "f08", "f10", "f12", "m02", "m04", "m06", "m08",
-       "f14", "f15", "f17", "f18"]  # fmt: skip
-# Reviewer scores after reading the printout. Claude's independent read, NOT a human's.
+       "f14", "f15", "f17", "f18"]
 MY_SCORES: dict[str, int] = {
     "f02": 2, "f06": 2, "f08": 2, "f12": 2, "m02": 1, "m04": 1,
     "f14": 2, "f15": 2, "f17": 2, "f18": 2,
-}  # fmt: skip
+}
 
 if __name__ == "__main__":
     rows = {r["id"]: r for r in map(json.loads, open("eval/qa.jsonl", encoding="utf-8"))}

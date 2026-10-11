@@ -1,10 +1,3 @@
-"""Step 9.2: validate eval/qa.jsonl; for multi-chunk questions show which gold pages are retrieved.
-
-WHY: a multi-chunk question is only useful if its gold really has 2+ passages, and we want to see
-early whether retrieval can reach all of them (this previews Recall@k of step 10).
-Run: $env:PYTHONPATH="src"; .\\.venv\\Scripts\\python.exe scripts\\check_eval.py [k]
-"""
-
 import json
 import sys
 from pathlib import Path
@@ -17,7 +10,6 @@ FIELDS = ("id", "type", "subtype", "question", "answer", "gold")
 
 
 def check_row(row: dict) -> list[str]:
-    """Return a list of problems for one eval row (empty list = fine)."""
     problems = [f"missing field {f}" for f in FIELDS if f not in row]
     if problems:
         return problems
@@ -40,7 +32,6 @@ def check_row(row: dict) -> list[str]:
 
 
 def show_retrieval(row: dict, k: int) -> None:
-    """Print top-k pages and mark each gold passage as found or missed."""
     hits = retrieve(row["question"], k=k)
     found_pages = {(h["doc_id"], h["page"]) for h in hits}
     print(f"\n=== {row['id']} [{row['subtype']}] {row['question']}")

@@ -1,9 +1,3 @@
-"""LLM client (Groq via OpenAI-compatible API) with an on-disk response cache.
-
-WHY a cache: the free tier is rate limited, and at temperature 0 the same prompt gives
-(almost) the same answer, so re-running an experiment should cost nothing and be reproducible.
-"""
-
 import hashlib
 import json
 import time
@@ -14,14 +8,10 @@ from openai import RateLimitError
 
 from rag.config import Settings, load_settings
 
-Messages = list[dict[str, str]]  # e.g. [{"role": "user", "content": "..."}]
+Messages = list[dict[str, str]]
 
 
 def cache_key(model: str, messages: Messages, temperature: float) -> str:
-    """Stable hash of everything that can change the answer.
-
-    sort_keys makes the JSON canonical, so dict ordering never changes the hash.
-    """
     payload = json.dumps(
         {"model": model, "messages": messages, "temperature": temperature},
         sort_keys=True,
@@ -31,18 +21,16 @@ def cache_key(model: str, messages: Messages, temperature: float) -> str:
 
 
 def cache_file(settings: Settings, key: str) -> Path:
-    """Path of the JSON file that stores the answer for this cache key."""
     return settings.cache_dir / f"{key}.json"
 
 
 def _call_groq(model: str, messages: Messages, temperature: float, settings: Settings) -> str:
-    """One real API call. Kept separate so tests can replace it with a fake."""
     client = ChatOpenAI(
         model=model,
         api_key=settings.groq_api_key,
         base_url=settings.groq_base_url,
         temperature=temperature,
-        max_retries=0,  # we handle retries ourselves, to control the waiting time
+        max_retries=0,
     )
     return str(client.invoke(messages).content)
 
@@ -54,10 +42,6 @@ def chat(
     settings: Settings | None = None,
     max_attempts: int = 5,
 ) -> str:
-    """Return the model's answer, from the cache if this exact call was made before.
-
-    On a rate-limit error (HTTP 429, common on free tiers) wait and retry.
-    """
     settings = settings or load_settings()
     key = cache_key(model, messages, temperature)
     path = cache_file(settings, key)
@@ -71,7 +55,7 @@ def chat(
         except RateLimitError:
             if attempt == max_attempts:
                 raise
-            wait = 10 * attempt  # linear backoff: 10 s, 20 s, ...
+            wait = 10 * attempt
             print(f"rate limited, waiting {wait}s (attempt {attempt}/{max_attempts})")
             time.sleep(wait)
 

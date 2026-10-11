@@ -5,7 +5,6 @@ from rag.index import DIM, build_index, load_index, save_index, search
 
 
 def unit(*values: float) -> np.ndarray:
-    """A DIM-long vector starting with `values`, normalized to length 1."""
     v = np.zeros(DIM)
     v[: len(values)] = values
     return v / np.linalg.norm(v)

@@ -1,5 +1,3 @@
-"""Step 12: command line entry point: python -m rag.cli ask "question"."""
-
 import argparse
 import sys
 
@@ -9,11 +7,6 @@ from rag.tools import DEFAULT_MODE, load_titles
 
 
 def format_sources(sources: list[tuple[str, int]], titles: dict[str, str]) -> list[str]:
-    """One line per cited (doc_id, page), without duplicates, in first-cited order.
-
-    WHY pure function: the printing logic is testable without calling retrieval or the LLM.
-    An id missing from the metadata is shown as-is instead of crashing.
-    """
     seen: set[tuple[str, int]] = set()
     lines = []
     for doc_id, page in sources:
@@ -36,8 +29,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> None:
-    """Answer one question: retrieve -> generate -> print answer and cited sources."""
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # Windows consoles are cp1252
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     args = build_parser().parse_args(argv)
     result = answer(args.question, k=args.k, mode=args.mode)
     print(result["answer"])

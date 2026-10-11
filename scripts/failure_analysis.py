@@ -1,12 +1,3 @@
-"""Step 11.6: failure categories for the best config (hybrid, 1000/100, k=4), one label per failure.
-
-WHY hand-assigned labels in a script: the categories come from reading each question, gold answer,
-retrieved chunks and answer (plus two probes: is the key fact in the top 4 / 8 / 20 chunks?).
-The script keeps those decisions reproducible, checks that every failing row has a label, and
-writes results/failures_hybrid_k4.csv. Categories: a standard 8-way RAG error taxonomy.
-Usage: python scripts/failure_analysis.py
-"""
-
 import csv
 import json
 from collections import Counter
@@ -23,7 +14,6 @@ CATEGORIES = {
     7: "Wrong refusal / refusal sentence appended to a real answer",
 }
 
-# id -> (category, evidence). Probes: key fact found in top 4 / 8 / 20 hybrid chunks.
 LABELS: dict[str, tuple[int, str]] = {
     "f04": (2, "gold p6 absent at k=4, fact found at k=8; model refused"),
     "f18": (2, "Youden/TPR definition absent at k=4, found at k=8; model refused"),
@@ -44,7 +34,6 @@ LABELS: dict[str, tuple[int, str]] = {
 
 
 def is_failure(row: dict) -> bool:
-    """Same rule as the first look at the results: wrong, partial, ungrounded or wrongly refused."""
     if row["type"] == "unanswerable":
         return not row["abstained"]
     low_faith = row["faithfulness"] is not None and row["faithfulness"] < 2
