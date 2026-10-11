@@ -15,7 +15,7 @@ def test_results_are_simple_dicts_with_titles(monkeypatch):
 
     monkeypatch.setattr(tools, "retrieve", fake_retrieve)
     results = tools.search_papers("What is BM25?", k=2, titles={"2501.00001": "Paper One"})
-    assert seen == {"query": "What is BM25?", "k": 2, "mode": "hybrid"}
+    assert seen == {"query": "What is BM25?", "k": 2, "mode": "hybrid+rerank"}
     assert set(results[0]) == {"doc_id", "title", "page", "score", "text"}
     assert results[0]["title"] == "Paper One"
     assert results[1]["title"] == "(title unknown)"  # missing metadata must not crash

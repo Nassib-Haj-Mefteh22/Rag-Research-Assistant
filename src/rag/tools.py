@@ -10,7 +10,7 @@ import json
 from rag.config import ROOT
 from rag.retrieve import DEFAULT_K, retrieve
 
-DEFAULT_MODE = "hybrid"  # best measured config in step 11 (hybrid, chunk 1000/100, k=4)
+DEFAULT_MODE = "hybrid+rerank"  # step 11.7: best Hit@4 (0.857) and MRR (0.676), fewest refusals
 METADATA_FILE = ROOT / "corpus" / "metadata.json"
 
 

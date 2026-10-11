@@ -15,7 +15,7 @@ from rag.cli import format_sources  # noqa: E402
 from rag.generate import answer  # noqa: E402
 from rag.tools import DEFAULT_MODE, load_titles  # noqa: E402
 
-MODES = ["hybrid", "dense", "hybrid+rerank", "dense+rerank"]
+MODES = ["hybrid+rerank", "hybrid", "dense+rerank", "dense"]
 
 
 @st.cache_data

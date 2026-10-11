@@ -26,7 +26,7 @@ ROWS = [
     ("cs1500_ov150_k4_dense", "E2b dense, chunk 1500/150, k=4"),
     ("cs1000_ov100_k4_hybrid", "E4 hybrid BM25+RRF, k=4"),
     ("cs1000_ov100_k4_dense_rerank", "E5 dense + rerank, k=4"),
-    ("cs1000_ov100_k4_hybrid_rerank", "E6 hybrid + rerank, k=4"),
+    ("cs1000_ov100_k4_hybrid_rerank", "**Default** E6 hybrid + rerank, k=4"),
 ]
 COLUMNS = [
     ("hit", "Hit@k"),

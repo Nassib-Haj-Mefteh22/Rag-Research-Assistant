@@ -24,6 +24,6 @@ def test_no_sources_gives_empty_list():
     assert format_sources([], TITLES) == []
 
 
-def test_parser_defaults_to_hybrid_k4():
+def test_parser_defaults_to_hybrid_rerank_k4():
     args = build_parser().parse_args(["ask", "What is RAG?"])
-    assert (args.mode, args.k, args.show_chunks) == ("hybrid", 4, False)
+    assert (args.mode, args.k, args.show_chunks) == ("hybrid+rerank", 4, False)
