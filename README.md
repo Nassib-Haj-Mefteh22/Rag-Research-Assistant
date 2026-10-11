@@ -131,7 +131,8 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 copy .env.example .env              # then put your GROQ_API_KEY in .env
 
-# build the data once (about 15 minutes on CPU)
+# build the data once (about 15 minutes on CPU); corpus/corpus_ids.txt pins exact
+# arXiv versions, so the rebuilt corpus is byte-identical to the evaluated one
 $env:PYTHONPATH="src"
 .\.venv\Scripts\python.exe -m rag.download
 .\.venv\Scripts\python.exe -m rag.parse

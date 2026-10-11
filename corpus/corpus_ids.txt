@@ -1,53 +1,55 @@
 # Format: <arXiv id>  # <title>. Lines starting with # are ignored. Titles verified via arXiv API on 2026-10-03.
+# Versions are pinned (vN): an unversioned id downloads the LATEST revision, which changed 2 papers
+# after our build (2610.01936, 2609.25645). Pinned = the exact PDFs our results were measured on.
 # --- RAG (25) ---
-2610.01936  # Mapping the RAG Landscape: A Four Axis Taxonomy of Efficiency, Defense, Interactivity, and Reasoning
-2610.01324  # Evaluating Biomedical Reranking for LLM-Based Question Answering over Longitudinal Clinical Notes
-2609.38473  # Re-ranking and Late Interaction Drive Retrieval Quality: A Controlled Comparison of RAG Strategies for Scientific Question Answering
-2609.31660  # Parser, Chunking, and Embedding Interactions in Retrieval-Augmented Generation over Indian Government Regulatory Documents
-2608.26192  # Comparing Chunking and Embedding Strategies for Turkish RAG Systems
-2609.16519  # AquiLLM: Evaluating Faithfulness in Open-Weight RAG-LLM Systems for Scientific Research
-2609.14579  # Beyond Benchmark Scores: How Synthetic and Authentic Query Distributions Diverge in RAG Evaluation
-2609.37469  # Relevance Is Not Sufficient Evidence: Detecting Evidence Gaps Before Generation in RAG
-2608.26385  # Why RAGs Hallucinate: Penalty-Aware Evaluation of Retrieval-Augmented Generation Systems with Knowledge-Gap Canaries
-2608.26379  # Assessing the Downstream Utility of Evidence-Aware Retrieval in RAG
-2608.24753  # The RAT: A Unified Bayesian Model for RAG Evaluation
-2608.23176  # Evaluating Modern RAG: Textual, Multimodal, Dense, and Late Interaction Pipelines
-2609.36700  # Lost in Conversation or Lost in Translation? Diagnosing Multi-Turn Degradation in RAG
-2609.13489  # Pre-retrieval Query Clustering for Adaptive Top-k Document Retrieval in RAG Systems
-2609.11646  # Your Retriever Already Knows: Distribution-Shape QPP for RAG Retrieval Sufficiency
-2609.31342  # Stale-Document Poisoning: When Outdated Retrieval Overrides Correct Model Answers
-2609.09243  # In RAG We Trust? Measuring Robustness of Retrieval-Augmented Generation Under Post-Retrieval Context Tampering
-2609.17709  # One Size Does Not Fit All! Dynamic Retriever and Generator Selection for RAG
-2609.24122  # Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines
-2608.22118  # RAG Collapse: LLM Responses Collapse When Retrieved Documents Are Self-Authored
-2609.35831  # Beyond the Context Window: An Adaptive Entropy-Based Routing Framework for Hybrid Retrieval and Long-Context Language Models
-2610.01767  # A Matryoshka Hierarchical RAG for Efficient Multi-Hop Question Answering
-2609.11758  # RAG-Safety-Bench: Reliable Evaluation of Retrieval-Augmented LLM Safety
-2608.21558  # Automating Multi-Hop RAG Evaluation via TRIAD: From Context Extraction to Validated Dataset Generation
-2609.14739  # Building Legal Reward Models for Grounding and Abstention
+2610.01936v1  # Mapping the RAG Landscape: A Four Axis Taxonomy of Efficiency, Defense, Interactivity, and Reasoning
+2610.01324v1  # Evaluating Biomedical Reranking for LLM-Based Question Answering over Longitudinal Clinical Notes
+2609.38473v1  # Re-ranking and Late Interaction Drive Retrieval Quality: A Controlled Comparison of RAG Strategies for Scientific Question Answering
+2609.31660v1  # Parser, Chunking, and Embedding Interactions in Retrieval-Augmented Generation over Indian Government Regulatory Documents
+2608.26192v2  # Comparing Chunking and Embedding Strategies for Turkish RAG Systems
+2609.16519v3  # AquiLLM: Evaluating Faithfulness in Open-Weight RAG-LLM Systems for Scientific Research
+2609.14579v1  # Beyond Benchmark Scores: How Synthetic and Authentic Query Distributions Diverge in RAG Evaluation
+2609.37469v1  # Relevance Is Not Sufficient Evidence: Detecting Evidence Gaps Before Generation in RAG
+2608.26385v1  # Why RAGs Hallucinate: Penalty-Aware Evaluation of Retrieval-Augmented Generation Systems with Knowledge-Gap Canaries
+2608.26379v1  # Assessing the Downstream Utility of Evidence-Aware Retrieval in RAG
+2608.24753v1  # The RAT: A Unified Bayesian Model for RAG Evaluation
+2608.23176v1  # Evaluating Modern RAG: Textual, Multimodal, Dense, and Late Interaction Pipelines
+2609.36700v1  # Lost in Conversation or Lost in Translation? Diagnosing Multi-Turn Degradation in RAG
+2609.13489v2  # Pre-retrieval Query Clustering for Adaptive Top-k Document Retrieval in RAG Systems
+2609.11646v1  # Your Retriever Already Knows: Distribution-Shape QPP for RAG Retrieval Sufficiency
+2609.31342v1  # Stale-Document Poisoning: When Outdated Retrieval Overrides Correct Model Answers
+2609.09243v2  # In RAG We Trust? Measuring Robustness of Retrieval-Augmented Generation Under Post-Retrieval Context Tampering
+2609.17709v1  # One Size Does Not Fit All! Dynamic Retriever and Generator Selection for RAG
+2609.24122v2  # Re:CAP - Auditing Retrieval Coverage in Production RAG Pipelines
+2608.22118v1  # RAG Collapse: LLM Responses Collapse When Retrieved Documents Are Self-Authored
+2609.35831v1  # Beyond the Context Window: An Adaptive Entropy-Based Routing Framework for Hybrid Retrieval and Long-Context Language Models
+2610.01767v1  # A Matryoshka Hierarchical RAG for Efficient Multi-Hop Question Answering
+2609.11758v1  # RAG-Safety-Bench: Reliable Evaluation of Retrieval-Augmented LLM Safety
+2608.21558v1  # Automating Multi-Hop RAG Evaluation via TRIAD: From Context Extraction to Validated Dataset Generation
+2609.14739v1  # Building Legal Reward Models for Grounding and Abstention
 # --- LLM evaluation (25) ---
-2609.37577  # Pair Difficulty Matters: Rethinking Pairwise LLM-as-a-Judge Evaluation and Consistency
-2609.37145  # From Judgment Quality to Downstream Utility: Rethinking LLM-as-a-Judge for Open-Ended Tasks
-2609.34198  # Frozen Judges, Moving Agents: Version-Dependent LLM-Judge Error and the Limits of Judge-Assisted Agent Evaluation
-2609.33955  # Designing Reliable LLM-as-a-Judge Measurement Systems for Multi-Turn Business Agents
-2609.31857  # LLM Judge Validation Under Sparse Overlap: From Inference to Design
-2609.29769  # JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places
-2609.22512  # Agreement Overstates Evidence: Error Dependence in LLM Judge Consensus
-2609.21277  # How Many Humans Are 32 LLM Judges Worth?
-2609.13824  # When Consistency Does Not Mean Reliability: Evaluating Local LLM Judges Against Human Ratings
-2609.12439  # Debiasing as a Measurement Intervention: Calibrated Ties and Resolution Loss in LLM-as-a-Judge Evaluation
-2609.11067  # When Noise Fabricates Bias: The Fragility of LLM-as-a-Judge Bias Measurement under Noisy Text
-2609.10996  # Rethinking Verbalized Confidence for LLM-as-a-Judge: A Compatibility Shift on Post-2025 Proprietary Models
-2609.12002  # Can We Trust LLM Judges: A Study of Capability-Dependent Biases and Multi-Judge Ensemble for Bias Calibration
-2609.06444  # Decomposing LLM-Judge Uncertainty to Target Expert Labels
-2609.02942  # Judging LLM-as-a-Judge: Concerning Rubric Artifacts in LLM-based Automated Text Generation Evaluation
-2609.01604  # Beyond Scores: Understanding LLM-as-a-Judge Mechanisms in Summarization Evaluation
-2608.31016  # LLM Judges Verify Presence, Not Absence: Omission Blindness in AI Clinical Notes and What Recovers It
-2609.35815  # How to Run Statistics over LLM Judges and Trust the Results: Calibrated Inference for Small-Sample AI Evaluation with evalstats
-2609.26489  # Calibration as a First-Class Criterion in LLM Evaluation
-2609.25645  # Efficient Cost-Aware LLM Evaluation via Bayesian Bandit Gittins Indices
-2609.36931  # Dating the Model: Hidden Dates in System Prompts Affect LLM Evaluation
-2609.34320  # Certified Selective Automation of LLM Agent Evaluation
-2609.30074  # How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure
-2610.01428  # Generalization Is Stability, Not Accuracy: Multi-Axis Evaluation of LLMs
-2609.00088  # Commit-first LLM judging inherits the judge's own errors
+2609.37577v1  # Pair Difficulty Matters: Rethinking Pairwise LLM-as-a-Judge Evaluation and Consistency
+2609.37145v1  # From Judgment Quality to Downstream Utility: Rethinking LLM-as-a-Judge for Open-Ended Tasks
+2609.34198v2  # Frozen Judges, Moving Agents: Version-Dependent LLM-Judge Error and the Limits of Judge-Assisted Agent Evaluation
+2609.33955v1  # Designing Reliable LLM-as-a-Judge Measurement Systems for Multi-Turn Business Agents
+2609.31857v2  # LLM Judge Validation Under Sparse Overlap: From Inference to Design
+2609.29769v2  # JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places
+2609.22512v1  # Agreement Overstates Evidence: Error Dependence in LLM Judge Consensus
+2609.21277v2  # How Many Humans Are 32 LLM Judges Worth?
+2609.13824v1  # When Consistency Does Not Mean Reliability: Evaluating Local LLM Judges Against Human Ratings
+2609.12439v1  # Debiasing as a Measurement Intervention: Calibrated Ties and Resolution Loss in LLM-as-a-Judge Evaluation
+2609.11067v1  # When Noise Fabricates Bias: The Fragility of LLM-as-a-Judge Bias Measurement under Noisy Text
+2609.10996v1  # Rethinking Verbalized Confidence for LLM-as-a-Judge: A Compatibility Shift on Post-2025 Proprietary Models
+2609.12002v1  # Can We Trust LLM Judges: A Study of Capability-Dependent Biases and Multi-Judge Ensemble for Bias Calibration
+2609.06444v3  # Decomposing LLM-Judge Uncertainty to Target Expert Labels
+2609.02942v1  # Judging LLM-as-a-Judge: Concerning Rubric Artifacts in LLM-based Automated Text Generation Evaluation
+2609.01604v1  # Beyond Scores: Understanding LLM-as-a-Judge Mechanisms in Summarization Evaluation
+2608.31016v1  # LLM Judges Verify Presence, Not Absence: Omission Blindness in AI Clinical Notes and What Recovers It
+2609.35815v1  # How to Run Statistics over LLM Judges and Trust the Results: Calibrated Inference for Small-Sample AI Evaluation with evalstats
+2609.26489v1  # Calibration as a First-Class Criterion in LLM Evaluation
+2609.25645v1  # Efficient Cost-Aware LLM Evaluation via Bayesian Bandit Gittins Indices
+2609.36931v1  # Dating the Model: Hidden Dates in System Prompts Affect LLM Evaluation
+2609.34320v1  # Certified Selective Automation of LLM Agent Evaluation
+2609.30074v1  # How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure
+2610.01428v1  # Generalization Is Stability, Not Accuracy: Multi-Axis Evaluation of LLMs
+2609.00088v1  # Commit-first LLM judging inherits the judge's own errors

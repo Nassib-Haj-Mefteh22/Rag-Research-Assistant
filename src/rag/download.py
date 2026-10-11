@@ -14,20 +14,24 @@ from rag.config import ROOT
 IDS_FILE = ROOT / "corpus" / "corpus_ids.txt"
 METADATA_FILE = ROOT / "corpus" / "metadata.json"
 RAW_DIR = ROOT / "data" / "raw"
-PDF_URL = "https://arxiv.org/pdf/{arxiv_id}"
+PDF_URL = "https://arxiv.org/pdf/{arxiv_id}"  # versioned id, e.g. 2610.01936v1
 API_URL = "https://export.arxiv.org/api/query"
 ATOM = "{http://www.w3.org/2005/Atom}"
 # WHY: arXiv asks automated clients to identify themselves and to go slowly.
 USER_AGENT = "rag-assistant-portfolio/0.1 (student project; polite downloader)"
 DELAY_SECONDS = 3.0
-ARXIV_ID = re.compile(r"^\d{4}\.\d{4,5}$")
+ARXIV_ID = re.compile(r"^\d{4}\.\d{4,5}v\d+$")  # version is required (reproducibility)
 
 
 def parse_ids(text: str) -> list[str]:
-    """Return arXiv IDs from the corpus file, ignoring comments, blanks and duplicates.
+    """Return versioned arXiv IDs (e.g. 2610.01936v1) from the corpus file, in file order.
 
     WHY a pure function: the file format (`id  # title`) is the one thing that can break
     silently, so it is parsed in one place and unit-tested without touching the network.
+    WHY versions are required: an unversioned URL serves the latest revision, so a rebuild
+    after an author update silently changes the corpus (found in the 12.5 fresh-clone check:
+    2610.01936 went from 28 to 35 pages). Comments, blanks and exact duplicates are ignored;
+    the same paper listed with two different versions is an error.
     """
     ids: list[str] = []
     for line in text.splitlines():
@@ -35,10 +39,18 @@ def parse_ids(text: str) -> list[str]:
         if not token:
             continue
         if not ARXIV_ID.match(token):
-            raise ValueError(f"Not an arXiv id: {token!r}")
-        if token not in ids:
-            ids.append(token)
+            raise ValueError(f"Not a versioned arXiv id (e.g. 2610.01936v1): {token!r}")
+        if token in ids:
+            continue
+        if base_id(token) in (base_id(i) for i in ids):
+            raise ValueError(f"Two versions of the same paper: {token!r}")
+        ids.append(token)
     return ids
+
+
+def base_id(arxiv_id: str) -> str:
+    """2610.01936v1 -> 2610.01936. Files, chunks and eval gold labels use the unversioned id."""
+    return re.sub(r"v\d+$", "", arxiv_id)
 
 
 def download_one(client: httpx.Client, arxiv_id: str, dest: Path) -> None:
@@ -103,7 +115,7 @@ def main() -> int:
         headers={"User-Agent": USER_AGENT}, follow_redirects=True, timeout=60.0
     ) as client:
         for arxiv_id in ids:
-            dest = RAW_DIR / f"{arxiv_id}.pdf"
+            dest = RAW_DIR / f"{base_id(arxiv_id)}.pdf"
             if dest.exists():
                 skipped.append(arxiv_id)
                 continue
@@ -114,7 +126,7 @@ def main() -> int:
                 failed.append(arxiv_id)
                 print(f"FAILED {arxiv_id}: {err}")
             time.sleep(DELAY_SECONDS)
-        metadata = fetch_metadata(client, ids)
+        metadata = fetch_metadata(client, [base_id(i) for i in ids])
     METADATA_FILE.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"metadata entries={len(metadata)} -> {METADATA_FILE.relative_to(ROOT)}")
     print(
